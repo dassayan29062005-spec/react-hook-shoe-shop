@@ -1,0 +1,137 @@
+.header{
+  width: 100%;
+  background-color: rgb(205, 205, 205);
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  gap: 50px;
+}
+*{
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+.logo{
+  border-radius: 50%;
+  height:80px;
+  width: 80px;
+}
+ul{
+  list-style: none;
+  
+}
+.option{
+  display: inline;
+  padding-right: 70px;
+  font-size:25px;
+}
+.shoes{
+  padding: 10px;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.item{
+  justify-content: center;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 20px;
+
+ 
+}
+.prod{
+  
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  
+}
+.section{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+   padding: 70px;
+   gap: 70px;
+   justify-content: center;
+}
+.img{
+  
+  width: 100px;
+  background-color: aqua;
+  height: 150ps;
+}
+.prod img{
+   border-radius: 40px 40px 0 0;
+  width: 100%;
+  
+  height: 300px;
+}
+p{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.data{
+  border-radius: 0 0 40px 40px;
+}
+.prod .data{
+  
+  height: 250px;
+  width: 150ps;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: auto;
+  padding: 25px;
+  background-color: rgb(227, 81, 81);
+  color: aliceblue;
+}
+.prod .btn{
+  background-color: rgb(255, 193, 193);
+  padding: 18px;
+
+}
+.btn:hover{
+  border: 5px 5px 5px rgb(128, 128, 128);
+}
+h1{
+  font-weight: 900;
+}
+.cart{
+  background-color: rgb(0, 251, 251);
+  padding: 20px;
+  height: fit-content;
+ 
+}
+/* show prod cart */
+.show{
+  display: grid;
+  gap: 30px;
+  grid-template-columns: auto auto auto ;
+  justify-content:space-between;
+
+  
+
+}
+.cartitem{
+  
+  padding-bottom: 40px;
+  max-height: 400px;
+  overflow-x: auto;
+  
+}
+.show img{
+  height: 50px;
+  width: 50px;
+}
+/* button for add more */
+.addbtn{
+  display: flex;
+  gap: 10px;
+}
+.pos{
+  padding:5px ;
+  background-color:blue;
+   color:white;
+   height: fit-content;
+}
