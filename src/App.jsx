@@ -9,8 +9,11 @@ function App() {
   const [total,totalset]=useState(0);
   //  count
   const [num,setnum]=useState([]);
+  
+
   function settotal(val){
-   
+  // toggle
+  
     totalset((prev)=>val+prev);
   }
 
@@ -43,17 +46,6 @@ function App() {
     "Sports Training Shoes",
     780
   ];
-
-
-  // const prod7=[
-    
-  //   "White Casual Sneakers",
-  //   70
-  // ];
-  // const prod8=["https://i.etsystatic.com/38377029/r/il/6a9d72/5975306566/il_570xN.5975306566_m2ea.jpg",
-  //   "White Casual Sneakers",
-  //   70
-  // ];
   return (
     <>
         <header className='header'>
@@ -79,7 +71,9 @@ function App() {
                   <p>$970</p>
                   
                   <button className='btn'
-                     onClick={()=>{setcart([...cart,prod1]); settotal(970);setnum(num=>[...num,1])}}
+                     onClick={()=>{setcart([...cart,prod1]); settotal(970);setnum(num=>[...num,1]); 
+                      
+                     }}
                   >Add to cart</button>
                 </div>
               </div>
@@ -91,7 +85,7 @@ function App() {
                
                   <p>$770</p>
                   
-                  <button className='btn'  onClick={(e)=>{setcart([...cart,prod2]); settotal(770);setnum(num=>[...num,1])}}>Add to cart</button>
+                  <button className='btn'  onClick={(e)=>{setcart([...cart,prod2]); settotal(770);setnum(num=>[...num,1]); }}>Add to cart</button>
                 </div>
               </div>
               {/* 3 */}
@@ -102,7 +96,7 @@ function App() {
              
                   <p>$270</p>
                
-                  <button  onClick={(e)=>{setcart([...cart,prod3]); settotal(270);setnum(num=>[...num,1])}} className='btn'>Add to cart</button>
+                  <button  onClick={(e)=>{setcart([...cart,prod3]); settotal(270);setnum(num=>[...num,1]);}} className='btn'>Add to cart</button>
                 </div>
               </div>
               {/* 4 */}
@@ -113,7 +107,7 @@ function App() {
              
                   <p>$600</p>
                
-                  <button  onClick={(e)=>{setcart([...cart,prod4]); settotal(600);setnum(num=>[...num,1])}} className='btn'>Add to cart</button>
+                  <button  onClick={(e)=>{setcart([...cart,prod4]); settotal(600);setnum(num=>[...num,1]); }} className='btn'>Add to cart</button>
                 </div>
               </div>
               {/* 5 */}
@@ -124,7 +118,7 @@ function App() {
              
                   <p>$700</p>
                
-                  <button  onClick={(e)=>{setcart([...cart,prod5]); settotal(700);setnum(num=>[...num,1])}} className='btn'>Add to cart</button>
+                  <button  onClick={(e)=>{setcart([...cart,prod5]); settotal(700);setnum(num=>[...num,1]); }} className='btn'>Add to cart</button>
                 </div>
               </div>
               {/* 6 */}
@@ -135,7 +129,7 @@ function App() {
              
                   <p>$780</p>
                
-                  <button className='btn'  onClick={(e)=>{setcart([...cart,prod6]); settotal(780);setnum(num=>[...num,1])}}>Add to cart</button>
+                  <button className='btn'  onClick={(e)=>{setcart([...cart,prod6]); settotal(780);setnum(num=>[...num,1]); }}>Add to cart</button>
                 </div>
               </div>
               
@@ -154,7 +148,7 @@ function App() {
                 
                 <div className='show' key={i}>
                   {/* <img style={{gridColumn:1/1,border:'2px solid red'}} src={c[0]} alt="" /> */}
-                  <div style={{backgroundImage:`url(${c[0]})`,backgroundSize:'cover', height:'60px', width:'60px'}}></div>
+                  <div style={{backgroundImage:`url("${c[0]}")`,backgroundSize:'cover', height:'60px', width:'60px'}}></div>
                   
                   <div style={{display:'grid', gap:'40px'}}>
                     <h4 >{c[1]}</h4>
@@ -166,10 +160,24 @@ function App() {
                       setnum((prev)=>(
                         prev.map((n,index)=> index===i?n+1:n)
 
-                      ))
+                      )
+                    );totalset(p=>p+c[2]);
                     }}>+</button>
                     <p style={{height:'fit-content'}}> {num[i]}</p>
-                    <button className='pos' >-</button>
+                    <button className='pos' onClick={
+                      ()=>{if(num[i]>=0){
+                        setnum(arr=>(
+                          arr.map((a,ind)=> ind===i?a-1:a)
+                        ));
+                        totalset(p=>p-c[2]);
+                        if(num[i]===1){
+                          setcart(prev=>prev.filter((item,index)=>index!==i));
+                          setnum(prev => prev.filter((n, index) => index !== i));
+                        }
+                      }
+                       
+                      }
+                    } >-</button>
                   </div>
                 </div>
               );
